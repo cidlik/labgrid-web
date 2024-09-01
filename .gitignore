@@ -1,0 +1,5 @@
+.venv
+*.html
+*.png
+node_modules/
+output/

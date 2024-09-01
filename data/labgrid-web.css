@@ -1,0 +1,25 @@
+.body {
+    margin: 0px;
+}
+
+.logo {
+    background-color: #d2d2d2;
+    padding: 4px;
+}
+
+.navbar {
+    display: flex;
+    background-color: #315f5c;
+    padding: 10px;
+    margin: 0px;
+}
+.navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #ebebeb;
+}
+.navbar a:hover {
+    color: #bfdce0;
+    text-decoration: underline;
+}

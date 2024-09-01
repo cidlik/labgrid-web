@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "build": "npm run build:jsapp",
+        "build:jsapp": "browserify ./js/status.js > output/status.js && browserify ./js/configs.js > output/configs.js"
+    },
+    "dependencies": {
+        "browserify": "^17.0.0"
+    }
+}
