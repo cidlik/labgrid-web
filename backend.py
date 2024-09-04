@@ -28,7 +28,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
-CONFIGS_DIR = pathlib.Path("output")
+CONFIGS_DIR = pathlib.Path("/usr/share/labgrid/configs")
 session = None
 
 

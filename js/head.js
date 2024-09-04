@@ -1,6 +1,4 @@
-function genHead () {
-    const host = window.location.hostname;
-    const port = window.location.port;
+function genHead (host, port) {
     const links = [
         { href: 'status', text: 'Статус' },
         { href: 'configs', text: 'Конфигурационные файлы' },

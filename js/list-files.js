@@ -1,8 +1,4 @@
-const host = window.location.hostname;
-const port = window.location.port;
-
-
-async function getConfigs() {
+async function getConfigs(host, port) {
     try {
         let response = await fetch(`http://${host}:${port}/api/configs`);
         if (!response.ok) {
@@ -15,17 +11,38 @@ async function getConfigs() {
 }
 
 
-async function buildConfigTable() {
+async function buildConfigTable(host, port) {
     const configslist = document.getElementById('configslist');
-    let configs = await getConfigs();
+    let configs = await getConfigs(host, port);
+
+    let table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tr = document.createElement('tr')
+    for (header of ["Имя файла", "Время изменения", "Размер"]) {
+        const th = document.createElement("th");
+        th.textContent = header;
+        tr.append(th);
+    }
+    thead.appendChild(tr);
+    table.appendChild(thead);
     for (const config of configs) {
-        const p = document.createElement('p');
-        const a = document.createElement('a');
+        console.log(config)
+        let row = table.insertRow();
+        // config name
+        let cell = row.insertCell();
+        let a = document.createElement('a');
         a.textContent = config['name'];
         a.href = `http://${host}:${port}/api/configs/${config["name"]}`
-        p.appendChild(a);
-        configslist.appendChild(p);
+        cell.appendChild(a);
+        // modify time
+        cell = row.insertCell();
+        cell.textContent = config["mtime"];
+        // size
+        cell = row.insertCell();
+        cell.textContent = config["size"];
+
     }
+    configslist.appendChild(table);
 }
 
 

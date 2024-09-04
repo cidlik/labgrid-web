@@ -3,8 +3,10 @@ const { buildConfigTable } = require('./list-files.js')
 
 
 function init() {
-    genHead();
-    buildConfigTable();
+    const host = window.location.hostname;
+    const port = window.location.port;
+    genHead(host, port);
+    buildConfigTable(host, port);
 }
 
 init()

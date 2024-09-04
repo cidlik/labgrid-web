@@ -1,9 +1,7 @@
 const { genHead } = require('./head.js')
 
 
-async function getStatus() {
-    const host = window.location.hostname;
-    const port = window.location.port;
+async function getStatus(host, port) {
     try {
         let response = await fetch(`http://${host}:${port}/api/status`);
         if (!response.ok) {
@@ -15,16 +13,18 @@ async function getStatus() {
     }
 }
 
-async function pasteImage() {
+async function pasteImage(host, port) {
     const statussvg = document.getElementById('statussvg');
-    let status = await getStatus();
+    let status = await getStatus(host, port);
     statussvg.innerHTML = status;
 }
 
 
 function init() {
-    genHead()
-    pasteImage()
+    const host = window.location.hostname;
+    const port = window.location.port;
+    genHead(host, port);
+    pasteImage(host, port);
 }
 
 init()
