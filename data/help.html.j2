@@ -15,14 +15,14 @@
 
 <div class="navbar" id="navbar"></div>
 
-<div class="status" id="status"></div>
+<div class="help" id="help">{{ help }}</div>
 
 <div class="version" id="version">
   Version: {{ version }}; build time = {{ date }}; Zuul build UUID: {{ zuul_build_uuid }}
 </div>
 
 <script>
-  {% include "output/status.js" %}
+  {% include "output/help.js" %}
 </script>
 
 </body>

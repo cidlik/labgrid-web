@@ -166,7 +166,35 @@ async def configs_page(request):
     return web.Response(text=page, content_type="text/html")
 
 
-async def async_main(host, port):
+async def get_status(request):
+    data = {
+        "place1": {
+            "acquired": True,
+            "resources": {
+                "resource1": {
+                    "name1": "val1",
+                    "name2": "val2",
+                },
+                "resource2": {
+                    "name1": "val1",
+                    "name2": "val2",
+                },
+            },
+        },
+        "place2": {
+            "acquired": False,
+            "resources": {
+                "resource1": {
+                    "name1": "val1",
+                    "name2": "val2",
+                },
+            },
+        },
+    }
+    return web.Response(text=json.dumps(data), content_type="text/html")
+
+
+async def async_main(port):
     app = web.Application()
     app.add_routes(
         [

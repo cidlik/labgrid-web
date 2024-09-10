@@ -1,7 +1,10 @@
+// Copyright 2024 RnD Center "ELVEES", JSC
+
 function genHead (host, port) {
     const links = [
         { href: 'status', text: 'Статус' },
         { href: 'configs', text: 'Конфигурационные файлы' },
+        { href: 'help', text: 'Помощь' },
     ];
 
     const navbar = document.getElementById('navbar');

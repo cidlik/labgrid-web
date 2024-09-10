@@ -24,6 +24,52 @@
     text-decoration: underline;
 }
 
-.configlist {
+.configslist {
+    padding: 10px;
     font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.configslist th,td {
+    border: 4px solid #ebebeb;
+    padding: 2px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.help {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.help pre {
+    background-color: #d2d2d2;
+    padding: 2px;
+}
+
+.help code {
+    background-color: #d2d2d2;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.note {
+    background-color: #f2c317;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0px;
+    padding: 2px;
+}
+
+.version {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #d2d2d2;
+    width:100%;
+    padding: 2px;
+    position: relative;
+    left: 0;
+    bottom: 0;
 }

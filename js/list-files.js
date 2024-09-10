@@ -1,3 +1,5 @@
+// Copyright 2024 RnD Center "ELVEES", JSC
+
 async function getConfigs(host, port) {
     try {
         let response = await fetch(`http://${host}:${port}/api/configs`);
@@ -13,12 +15,12 @@ async function getConfigs(host, port) {
 
 async function buildConfigTable(host, port) {
     const configslist = document.getElementById('configslist');
-    let configs = await getConfigs(host, port);
+    const configs = await getConfigs(host, port);
 
-    let table = document.createElement('table');
+    const table = document.createElement('table');
     const thead = document.createElement('thead');
     const tr = document.createElement('tr')
-    for (header of ["Имя файла", "Время изменения", "Размер"]) {
+    for (header of ["Имя файла", "Время изменения", "Размер, Б"]) {
         const th = document.createElement("th");
         th.textContent = header;
         tr.append(th);
@@ -26,11 +28,10 @@ async function buildConfigTable(host, port) {
     thead.appendChild(tr);
     table.appendChild(thead);
     for (const config of configs) {
-        console.log(config)
-        let row = table.insertRow();
+        const row = table.insertRow();
         // config name
         let cell = row.insertCell();
-        let a = document.createElement('a');
+        const a = document.createElement('a');
         a.textContent = config['name'];
         a.href = `http://${host}:${port}/api/configs/${config["name"]}`
         cell.appendChild(a);
